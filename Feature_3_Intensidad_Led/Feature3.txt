@@ -1,0 +1,18 @@
+const int ledPIN = 9;
+ 
+byte outputValue = 0;  
+ 
+void setup()
+{  
+   Serial.begin(9600);         // Iniciar puerto serie
+}
+ 
+void loop() 
+{
+   if (Serial.available()>0){   // Si hay datos disponibles
+       outputValue = Serial.read();   // Leemos la opción
+     outputValue -= '0';      // Restamos '0' para convertir a un número
+     outputValue *= 25;      // Multiplicamos x25 para pasar a una escala 0 a 250
+     analogWrite(ledPIN , outputValue);
+   }
+}  
