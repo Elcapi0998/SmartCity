@@ -1,0 +1,18 @@
+//Encender led con boton
+const int led=10;
+const int pulsador=4;
+int val;
+
+void setup(){
+	pinMode(led,OUTPUT);
+	pinMode(pulsador,INPUT);
+}
+
+void loop(){
+	val=digitalRead(pulsador);
+	if(val == HIGH){
+		digitalWrite(led,HIGH);
+	} else {
+		digitalWrite(led, LOW);
+	}
+}
